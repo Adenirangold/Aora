@@ -1,10 +1,22 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 export default function _layout() {
   return (
-    <View>
-      <Text>_layout</Text>
-    </View>
+    <>
+      <Stack>
+        <Stack.Screen
+          name="signIn"
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="signUp"
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+      </Stack>
+      <StatusBar backgroundColor="#161622" style="light" />
+    </>
   );
 }

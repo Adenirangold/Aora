@@ -6,7 +6,7 @@ import images from "../constants/images";
 import CustomButton from "../components/CustomButton";
 import { StatusBar } from "expo-status-bar";
 
-export default function index() {
+export default function Welcome() {
   return (
     <SafeAreaView className="h-full bg-primary">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
@@ -23,7 +23,7 @@ export default function index() {
           ></Image>
           <View className="relative mt-8">
             <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless Possibilities With{"  "}
+              Discover Endless{"\n"} Possibilities With{"  "}
               <Text className="text-secondary-200">Aora</Text>
             </Text>
             <Image
