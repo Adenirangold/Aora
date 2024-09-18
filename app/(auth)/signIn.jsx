@@ -1,18 +1,23 @@
-import { View, Text, ScrollView, Image } from "react-native";
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 
-import images from "../../constants/images";
+import { images } from "../../constants";
+
+import { getCurrentUser, signIn } from "../../lib/appwrite";
+import { useGlobalContext } from "../../context/GloberProvider";
+import CustomButton from "../../components/CustomButton";
 import FormField from "../../components/FormField";
-import { Link } from "expo-router";
 
 const SignIn = () => {
+  const { setUser, setIsLogged } = useGlobalContext();
   const [isSubmitting, setSubmitting] = useState(false);
-
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+
   const submit = async () => {
     if (form.email === "" || form.password === "") {
       Alert.alert("Error", "Please fill in all fields");
@@ -64,12 +69,12 @@ const SignIn = () => {
             otherStyles="mt-7"
           ></FormField>
 
-          {/* <CustomButton
+          <CustomButton
             title="Sign In"
             handlePress={submit}
             containerStyles="mt-7"
             isLoading={isSubmitting}
-          /> */}
+          />
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
               Don't have an account?
